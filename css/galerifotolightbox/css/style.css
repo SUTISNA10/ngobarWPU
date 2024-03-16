@@ -1,0 +1,185 @@
+/* fonts */
+  
+  .poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+
+/* Style Utama */
+body{
+    font:18px/36px 'Poppins', 'Arial Narrow', arial, sans-serif;
+    background-color:#67C6E3;
+    
+}
+h1{
+    font-size:80px;
+    margin:50px 0;
+    text-align:center;
+    text-shadow: 1px 1px 1px white;
+}
+.container{
+    width:600px;
+    background-color:white;
+    margin:auto;
+    padding:30px;
+    box-shadow: 0 0 3px 3px rgba(49,54,63,.3);
+    border-radius:5px;
+
+    
+}
+
+.gallery li{
+    width:120px;
+    height:120px;
+    /* overflow:hidden; */
+    border: 5px solid #378CE7;
+    float:left;
+    margin-right:20px;
+    position:relative;
+
+    
+    span{
+        display:block;
+        width:120px;
+        height:120px;
+        background-color:rgba(200,200,200,.5);
+        position:absolute;
+        top:0;
+        text-align:center;
+        line-height:120px;
+        color:#000;
+        text-shadow:1px 1px 1px #fff;
+        opacity:0;  
+        transition:.5s;
+        transform:scale(0) rotate(0);
+    }
+    a:hover span{
+        opacity:1;
+        transform:scale(1) rotate(360deg);
+    }
+}
+
+/* penggunaan satu property css untuk beberapa class atau tag html */
+.gallery li,
+.gallery li img,
+.gallery li span{
+    border-radius:50%;
+}
+
+/* clear untuk merubah tampilan parrent yang runtuh karena penggunaan float, clear disimpan di div dan di akhir li yang menggunakan floats */
+.clear{
+    clear:both;
+}
+
+/* overlay */
+.overlay{
+    width:0;
+    height:0;
+    overflow:hidden;
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0);
+    z-index:9999;
+    transition:1s;
+    text-align:center;
+    padding:100px 0;
+}
+.overlay:target{
+    width:auto;
+    height:auto;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,.7);
+}
+.overlay img{
+    max-height:100%;
+    box-shadow:2px 2px 7px rgba(55, 140, 231, .5);
+}
+.overlay:target img{
+    animation:fadeAjah 1s;
+}
+.overlay .close{
+    position:absolute;
+    top:50px;
+    left:50%;
+    margin-left:-20px;
+    color:#67C6E3;
+    font-weight:bold;
+    text-decoration:none;
+    background-color:black;
+    border:solid 1px #67C6E3;
+    line-height:15px;
+    padding:5px;
+    opacity:0;
+}
+.overlay:target .close{
+    animation:slideDownFade .5s .5s forwards;
+}
+.overlay:target .next,
+.overlay:target .prev{
+    animation:fadeAjah .5s .5s forwards;
+}
+
+/* navigasi */
+.next, .prev{
+    width:64px;
+    height:64px;
+    background-image:url(../img/kanan.png);
+    position:absolute;
+    text-indent:-9999px;
+    top:45%;
+    margin-left:50px;
+    opacity:0;
+}
+.prev{
+    background-image:url(../img/kiri.png);
+    margin-left:-115px;
+}
+
+/* animasi */
+@keyframes fadeAjah{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+@keyframes zoomDanFade{
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes slideDownFade{
+    0%{
+        opacity:0;
+        margin-top:-20px;
+    }
+    100%{
+        opacity:1;
+        margin-top:0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
